@@ -1,11 +1,9 @@
-import Header from "./components/layout/Header";
-import Hero from "./components/layout/Hero";
-import HomeMenu from "./components/layout/HomeMenu";
-import SectionHeaders from "./components/layout/SectionHeaders";
+import Hero from "../components/layout/Hero";
+import HomeMenu from "../components/layout/HomeMenu";
+import SectionHeaders from "../components/layout/SectionHeaders";
 export default function Home() {
   return (
     <>
-      <Header />
       <Hero />
       <HomeMenu />
       <section className="text-center my-16">
@@ -13,21 +11,21 @@ export default function Home() {
         <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
           <p>
             The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
-            Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+            below for those interested. Sections 1.10.32 and 1.10.33 from de
+            Finibus Bonorum et by Cicero are also reproduced in their exact
+            original form, accompanied by English versions from the 1914
+            translation by H. Rackham.
+          </p>
+          <p>
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+            below for those interested. Sections 1.10.32 and 1.10.33 from de
+            Finibus Bonorum et Malorum by Cicero are also reproduced in their
             exact original form, accompanied by English versions from the 1914
             translation by H. Rackham.
           </p>
           <p>
             The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
-            Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-            exact original form, accompanied by English versions from the 1914
-            translation by H. Rackham.
-          </p>
-          <p>
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
+            below for those interested. Sections 1.10.32 and 1.10.33 from de
             translation by H. Rackham.
           </p>
         </div>
@@ -46,9 +44,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <footer className="border-t p-8 text-center text-gray-500 mt-16">
-        &copy; 2024 All rights reserved.
-      </footer>
+      
     </>
   );
 }
