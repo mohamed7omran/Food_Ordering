@@ -3,12 +3,16 @@ import Right from "../icons/right";
 
 const Hero = () => {
   return (
-    <section className="grid grid-cols-2">
-      <div>
+    <section className="hero mt-4">
+      <div className="py-12">
         <h1 className="text-4xl font-semibold">
-          Everything is better with a pizza
+          Everything <br /> is better <br /> with a{" "}
+          <span className="text-primary">pizza</span>
         </h1>
-        <p className="mt-4 text-gray-500">pizza is the missing pice</p>
+        <p className="my-6 text-gray-500 text-sm">
+          Pizza is the missing piece that makes every day complete, a simple yet
+          delicious joy in life
+        </p>
         <div className="flex gap-4 text-sm">
           <button className="bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full text-sm">
             Order noe
