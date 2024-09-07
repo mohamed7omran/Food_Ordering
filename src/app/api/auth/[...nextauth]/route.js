@@ -24,18 +24,14 @@ const handler = NextAuth({
         const password = credentials.password;
         mongoose.connect(process.env.MONGO_URL);
         const user = await User.findOne({ email });
-        if (!user) {
-          console.log("email is not available");
-        } else {
-          console.log("email is available");
-        }
         const isValidEmail =
           user && bcrypt.compareSync(password, user.password);
         if (!isValidEmail) {
           console.log("Invalid email");
         } else {
-          console.log("Invalid email");
+          return user;
         }
+        return null;
       },
     }),
   ],

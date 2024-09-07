@@ -23,7 +23,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative animate-spin-slow ">
         <Image
           src={"/pizza.png"}
           layout={"fill"}
