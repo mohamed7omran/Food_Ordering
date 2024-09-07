@@ -6,10 +6,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      //Removes any whitespace from the email before saving.
-      trim: true,
-      lowercase: true,
-      match: [/.+@.+\..+/, "Please enter a valid email address"],
     },
     password: {
       type: String,
@@ -20,6 +16,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
-module.exports = User;
+export default User;
