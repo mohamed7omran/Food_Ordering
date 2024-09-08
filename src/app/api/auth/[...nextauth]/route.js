@@ -12,7 +12,7 @@ const handler = NextAuth({
       name: "Credentials",
       id: "credentials",
       credentials: {
-        username: {
+        email: {
           label: "Email",
           type: "email",
           placeholder: "test@example.com",
@@ -20,6 +20,7 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
+        console.log(credentials);
         const email = credentials.email;
         const password = credentials.password;
         mongoose.connect(process.env.MONGO_URL);
@@ -29,12 +30,31 @@ const handler = NextAuth({
         if (!isValidEmail) {
           console.log("Invalid email");
         } else {
-          return user;
+          return {
+            id: user._id,
+            email: user.email,
+            username: user.userName,
+          };
         }
         return null;
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      // Attach username to the session object
+      session.user.username = token.username;
+      session.user.email = token.email;
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.username = user.username;
+        token.email = user.email;
+      }
+      return token;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };

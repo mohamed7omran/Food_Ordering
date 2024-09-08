@@ -5,6 +5,7 @@ import { useState } from "react";
 const RegisterPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [userName, setUserName] = useState();
   const [creatingUser, setCreatingUser] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [error, setError] = useState(false);
@@ -18,7 +19,7 @@ const RegisterPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, userName }),
     });
     if (response.ok) {
       setUserCreated(true);
@@ -48,6 +49,13 @@ const RegisterPage = () => {
         </div>
       )}
       <form onSubmit={handleSubmit} className="block max-w-xs mx-auto">
+        <input
+          type="text"
+          value={userName}
+          disabled={creatingUser}
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="Name"
+        />
         <input
           type="email"
           value={email}
